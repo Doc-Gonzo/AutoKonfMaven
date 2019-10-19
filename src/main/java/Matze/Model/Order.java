@@ -1,4 +1,4 @@
-package Matze;
+package Matze.Model;
 import java.util.ArrayList;
 
 public class Order {

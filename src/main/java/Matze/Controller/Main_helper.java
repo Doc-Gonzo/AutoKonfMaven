@@ -1,4 +1,8 @@
-package Matze.service;
+package Matze.Controller;
+
+import Matze.Model.Frame;
+import Matze.Model.Package;
+import Matze.persistence.Localization;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -8,11 +12,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
-
-import Matze.Frame;
-import Matze.Package;
-import Matze.service.Main_helper;
-import Matze.persistence.Localization;
 
 
 public class Main_helper {

@@ -1,4 +1,4 @@
-package app;
+package Matze.Model;
 
 public class Localization {
 	

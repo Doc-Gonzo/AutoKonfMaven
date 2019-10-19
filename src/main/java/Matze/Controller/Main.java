@@ -1,20 +1,37 @@
-package Matze;
+package Matze.Controller;
+
+import Matze.AppConfiguration;
+import Matze.Model.Frame;
+import Matze.Model.Package;
+import Matze.persistence.Localization;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import Matze.persistence.Localization;
-import  Matze.service.Main_helper;
 
-import Matze.Frame;
-import Matze.Package;
+@SpringBootApplication
 
-public class Main {	
+public class Main extends SpringBootServletInitializer {
+
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application)
+	{
+		return application.sources(AppConfiguration.class);
+	}
 
 	/* Main Methode */
-	public static void main(String[] args) throws IOException {		
+	public static void main(String[] args) throws IOException {
+
+		SpringApplication application = new SpringApplication(Main.class);
+		application.setApplicationContextClass(AnnotationConfigWebApplicationContext.class);
+		SpringApplication.run(Main.class, args);
+
 		
 		String answer;
 		Frame chosenFrame = new Frame("","", "");
@@ -25,8 +42,7 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		Localization german = new Localization();		
 		FileReader readerFrames = null,readerPackages = null;
-		Main_helper helper = new Main_helper(); 		
-		 
+		Main_helper helper = new Main_helper();
 		
 		/* FileReader erstellen */
 		readerFrames = helper.startFrameReader("frames.csv");
@@ -37,7 +53,7 @@ public class Main {
 		/* Arraylists erstellen */
 		ArrayList<Frame> framesList = new ArrayList<>(1);
 		ArrayList<Package> packagesList = new ArrayList<>(1);
-		/* haha */
+
 		/* Frames einlesen*/
 		  String line  = brFrames.readLine();		
 		  while (line != null)

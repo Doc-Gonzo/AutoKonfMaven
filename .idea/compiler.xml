@@ -9,6 +9,12 @@
         <module name="AutoKonfMaven" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AutoKonfMaven.main" target="1.8" />
+      <module name="AutoKonfMaven.test" target="1.8" />
+      <module name="AutoKonfMaven.testFunctionalTapestry" target="1.8" />
+      <module name="AutoKonfMaven.testUnitTapestry" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

@@ -1,4 +1,4 @@
-package Matze;
+package Matze.Model;
 public class Frame {
 	
 	private String framePreis;
