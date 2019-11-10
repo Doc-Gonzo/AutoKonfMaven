@@ -1,6 +1,7 @@
-package Matze.Controller;
+package Matze.app;
 
 import Matze.AppConfiguration;
+import Matze.Controller.Main_helper;
 import Matze.Model.Frame;
 import Matze.Model.Package;
 import Matze.persistence.Localization;

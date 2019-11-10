@@ -18,27 +18,16 @@ public class Main_helper {
 	 Localization german = new Localization();
 	 Scanner scan = new Scanner(System.in);
 	
-	/* FileReader starten */
-	public FileReader startFrameReader(String path_to_csv) {
+	/* FileReader starten -> try-catch wurde durch checked exception ersetzt */
+	public FileReader startFrameReader(String path_to_csv)  throws FileNotFoundException {
 		FileReader readerFrames = null;
-		try {
-			readerFrames = new FileReader(path_to_csv);
-		
-		} catch (FileNotFoundException e) {
-			System.out.print("No Configfile found. Please contact Administrator");
-		}
+		readerFrames = new FileReader(path_to_csv);
 		return readerFrames;
 	}
 	
-	
-	public FileReader startPackageReader(String path_to_csv) {
+	public FileReader startPackageReader(String path_to_csv)  throws FileNotFoundException {
 		FileReader readerPackages = null;
-		try {
-			readerPackages = new FileReader(path_to_csv);
-		} 
-		catch (FileNotFoundException e) {
-			System.out.print("No Configfile found. Please contact Administrator");
-		}
+		readerPackages = new FileReader(path_to_csv);
 		return readerPackages;
 	}
 	
