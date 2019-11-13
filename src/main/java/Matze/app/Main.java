@@ -35,9 +35,9 @@ public class Main extends SpringBootServletInitializer {
 
 		
 		String answer;
-		Frame chosenFrame = new Frame("","", "");
+		Frame chosenFrame;
 		int frameNr,packageNr;	
-		ArrayList<Package> chosenPackageList = new ArrayList<Package>(1);
+		ArrayList<Package> chosenPackageList;
 		boolean frameSure = false,packageSure = false,packageFull = false;
 		int lastOrderNumber = 0;
 		Scanner scan = new Scanner(System.in);
@@ -63,7 +63,9 @@ public class Main extends SpringBootServletInitializer {
 			 Frame someFrame = new Frame(lineValues[0], lineValues[1], lineValues[2]);
 			 framesList.add(someFrame);
 			 line  = brFrames.readLine();
-		   } 
+		   }
+		helper.addFramestoDB(framesList);
+
 		/* Packages einlesen*/
 		  line  = brPackages.readLine();		
 		  while (line != null)

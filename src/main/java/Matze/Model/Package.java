@@ -4,17 +4,16 @@ public class Package {
 	private String packagePreis;
 	private String packageLieferZeit;
 	private String packageName;	
-	private String packageItems;	
+	private String packageDescription;
 	
 	/* Konstruktor */
-	public Package(String packageName, String packagePreis, String packageItems, String packageLieferZeit) {
+	public Package(String packageName, String packagePreis, String packageDescription, String packageLieferZeit) {
 		super();
 		this.packageName = packageName;
 		this.packagePreis = packagePreis;
-		this.packageItems = packageItems;
+		this.packageDescription = packageDescription;
 		this.packageLieferZeit = packageLieferZeit;		
 	}
-
 
 	public String getPackagePreis() {
 		return packagePreis;
@@ -34,10 +33,10 @@ public class Package {
 	public void setPackageName(String packageName) {
 		this.packageName = packageName;
 	}
-	public String getPackageItems() {
-		return packageItems;
+	public String getPackageDescription() {
+		return packageDescription;
 	}
-	public void setPackageItems(String packageItems) {
-		this.packageItems = packageItems;
+	public void setPackageDescription(String packageDescription) {
+		this.packageDescription = packageDescription;
 	}	
 }

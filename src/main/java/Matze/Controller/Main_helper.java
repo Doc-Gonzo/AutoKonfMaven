@@ -6,6 +6,10 @@ import Matze.persistence.Localization;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,7 +23,7 @@ public class Main_helper {
 	 Scanner scan = new Scanner(System.in);
 	
 	/* FileReader starten -> try-catch wurde durch checked exception ersetzt */
-	public FileReader startFrameReader(String path_to_csv)  throws FileNotFoundException {
+	public FileReader startFrameReader(String path_to_csv) throws FileNotFoundException {
 		FileReader readerFrames = null;
 		readerFrames = new FileReader(path_to_csv);
 		return readerFrames;
@@ -44,7 +48,7 @@ public class Main_helper {
 	public void givePackagesList(ArrayList<Package> packagesList) {
 		int counter = 1;
 		for(Package packages : packagesList) {
-			System.out.print("(" + counter + ")"+ german.space + packages.getPackageName() + german.space + packages.getPackageItems() + german.space + german.delTime + packages.getPackageLieferZeit() + german.space + german.price + packages.getPackagePreis() + german.breaks );
+			System.out.print("(" + counter + ")"+ german.space + packages.getPackageName() + german.space + packages.getPackageDescription() + german.space + german.delTime + packages.getPackageLieferZeit() + german.space + german.price + packages.getPackagePreis() + german.breaks );
 			counter ++;
 		}		
 	}
@@ -121,9 +125,6 @@ public class Main_helper {
 		}
 			return  chosenPackageList;	
 	}
-	
-	
-	
 
 	/* Preis & Lieferzeit berechnen */
 	public void statusZeile(Frame chosenFrame,ArrayList<Package> packagesList2) {
@@ -146,6 +147,24 @@ public class Main_helper {
 		 c.add(Calendar.DATE, lieferTage);
 		lieferDatum = c.getTime();
 		System.out.println("Gesamtpreis: " + gesamtPreis +  "€."  + german.space + " Vorraussichtliche Lieferung: " + dateFormat.format(lieferDatum));
+	}
+	public void addFramestoDB(ArrayList<Frame> framesList) {
+		Statement stmt;
+
+		Connection connection;
+		try {
+			connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1/autokonfigurator", "root", "");
+			System.out.println("Loift");
+
+			stmt = connection.createStatement();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+	for (Frame frame : framesList) {
+
+		}
 	}
 
 }
